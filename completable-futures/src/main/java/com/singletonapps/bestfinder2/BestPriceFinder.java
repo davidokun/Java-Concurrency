@@ -49,9 +49,12 @@ public class BestPriceFinder {
 
         List<CompletableFuture<String>> priceFutures =
                 shops.stream()
-                .map(shop -> CompletableFuture.supplyAsync(() -> shop.getPrice(product), ExecutorFactory.getCustomExecutor(shops.size())))
+                .map(shop -> CompletableFuture.supplyAsync(() -> shop.getPrice(product),
+                        ExecutorFactory.getCustomExecutor(shops.size())))
                 .map(future -> future.thenApply(Quote::parse))
-                .map(future -> future.thenCompose(quote -> CompletableFuture.supplyAsync(() -> Discount.applyDiscount(quote), ExecutorFactory.getCustomExecutor(shops.size()))))
+                .map(future -> future.thenCompose(quote -> CompletableFuture.supplyAsync(() ->
+                        Discount.applyDiscount(quote),
+                        ExecutorFactory.getCustomExecutor(shops.size()))))
                 .collect(Collectors.toList());
 
         return priceFutures.stream()
