@@ -6,6 +6,8 @@ Samples using java.util.concurrent Classes
 
 Contains examples of ExecutorService class usage. It has ExecutorService and ScheduledExecutorService code snippets.
 
+---
+
 ## 2. [Parallel Streams and ForkJoin](https://github.com/davidokun/Java-Concurrency/tree/develop/parallel-streams-and-forkjoin)
 
 Contains examples to sum every number between 1 an n usign multiple types of iteration like sequential streams, parallel streams, Ranged Streams and implementations of the ForkJoin framework. 
@@ -18,7 +20,8 @@ It performs some benchmarks with each type of implementation.
 2. Run `mvn clean package`
 3. Run Class `App.class`
 
-Result may vary on each machine depending on the CPU and numbers of cores. An eample result should be like:
+Result may vary on each machine depending on the CPU and numbers of cores. An example result should be like:
+
 
 ```bash
 Total Memory: 506462208 (483.0 MiB)
@@ -46,3 +49,5 @@ ForkJoin sum done in: 59 msecs
 Result: 50000005000000
 ForkJoinWithList sum done in: 18 msecs
 ```
+
+---
